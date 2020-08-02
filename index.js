@@ -22,8 +22,7 @@ console.log("Result is:",result);
 /***Solution 2****/
  let reversedStr="";
  const reverseString=(str)=> {
-  reversedStr = str.split("").reverse().join(""); 
-  return reversedStr;
+  return str.split("").reverse().join(""); 
 }
 let result = reverseString("hello");
 console.log("Result is::",result);
