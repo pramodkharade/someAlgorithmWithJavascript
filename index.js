@@ -27,3 +27,17 @@ console.log("Result is:",result);
 let result = reverseString("hello");
 console.log("Result is::",result);
 
+/***Factorial****/
+
+let results =1;
+ const factorial=(num)=> {
+   
+   for(let i=1; i <=num;i++){
+    // console.log("I is::",num);
+   results *= i;
+   }
+  return results; 
+   
+}
+let result = factorial(5);
+
