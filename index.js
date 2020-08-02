@@ -41,3 +41,21 @@ let results =1;
 }
 let result = factorial(5);
 
+/****Find Longest Word In String****/
+
+let longestWord ="";
+ const findLogestWord=(str)=> {
+   let words = str.split(" ");
+   for(let word of words){
+     if(word.length> longestWord.length){
+       longestWord = word;
+     }
+     //console.log("Word is::", words);
+   }
+   
+  return longestWord; 
+   
+}
+let result = findLogestWord("This is Javascript Developer");
+console.log("Result is::",result);
+
