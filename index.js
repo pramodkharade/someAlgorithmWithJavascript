@@ -42,7 +42,7 @@ let results =1;
 let result = factorial(5);
 
 /****Find Longest Word In String****/
-
+/**Solution 1**/
 let longestWord ="";
  const findLogestWord=(str)=> {
    let words = str.split(" ");
@@ -54,6 +54,15 @@ let longestWord ="";
    }
    
   return longestWord; 
+   
+}
+let result = findLogestWord("This is Javascript Developer");
+console.log("Result is::",result);
+
+/***Solution 2***/
+ let longestWord ="";
+ const findLogestWord=(str)=> {
+   return str.split(" ").sort((a,b)=>b.length-a.length)[0]
    
 }
 let result = findLogestWord("This is Javascript Developer");
