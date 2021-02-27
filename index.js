@@ -52,6 +52,9 @@ let longestWord ="";
      }
      //console.log("Word is::", words);
    }
+
+  
+  
    
   return longestWord; 
    
@@ -67,4 +70,49 @@ console.log("Result is::",result);
 }
 let result = findLogestWord("This is Javascript Developer");
 console.log("Result is::",result);
+
+ /* 
+ Sliding Window Algorithm
+ Given an array of integers and a number k, find the maximum sum of a subarray of size k.
+ Brute Force: O(N*K) N = Size of Array.
+ 
+ */
+const inputArr =[10,30,20,50,60,40,40];
+
+/***Solution 1***/
+const  maxSubarray = function(arr,k){
+  let max = 0;
+  for(let i=0;i<arr.length-k+1;i++){
+    let tempMax = 0;
+    for(let j=i;j<i+k;j++){
+      tempMax += arr[j];
+    }
+    if(tempMax > max){
+      max = tempMax;
+    }
+  }
+  return max;
+};
+console.log(maxSubarray,3);
+
+/***Solution 2***/
+
+const inputArr =[10,30,20,50,60,40,40];
+var maxSubarray = function(arr,k){
+  let max = 0;
+  let windowSum = 0;
+  let windowStart=0;
+  for(let windowEnd=0;windowEnd<arr.length;windowEnd++){
+      windowSum+=arr[windowEnd];
+      if(windowEnd>=k-1){
+        max = Math.max(windowSum,max);
+        windowSum -= arr[windowStart];
+        windowStart++;
+      }
+      console.log(windowSum,max);
+  }
+  return max;
+};
+;
+console.log("Max Value:",maxSubarray(inputArr,3));
 
