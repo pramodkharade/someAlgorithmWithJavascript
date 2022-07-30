@@ -244,4 +244,35 @@ function mostRepeatedCharSol(str) {
 
 console.log("Repated Char Sol::", mostRepeatedCharSol("324323423rtrttuuoopp"));
 
+/*****Cahe Function start*****/
+function myMemoize(fn,context){
+
+    const res ={};
+    return function (...args){
+
+        var argsCache = JSON.stringify(args);
+        if(!res[argsCache]){
+            res[argsCache] = fn.call(context || this, ...args)
+        }
+        return res[argsCache]
+    }
+}
+
+const clumyProduct = (num1,num2)=>{
+    for(let i=1; i<= 100000000;i++){}
+    return num1 * num2;
+}
+
+const memorizedclumyProduct = myMemoize(clumyProduct);
+
+console.time();
+console.log(memorizedclumyProduct(9467,7649));
+console.timeEnd();
+
+console.time();
+console.log(memorizedclumyProduct(9467,7649));
+console.timeEnd();
+
+/*****Cahe Function End*****/
+
 
