@@ -285,3 +285,77 @@ function add(a){
     }
 }
 console.log(add(5)(2)(3)(4)())
+
+/****Folder Explorer Start ReactJS ****/
+import { useState } from "react";
+
+function Folder({ folderData }) {
+  const [expand, setExpand] = useState(false);
+
+  if (folderData.isFolder) {
+    return (
+      <div>
+        <span onClick={() => setExpand(!expand)}>
+          {folderData.name}
+          <br />
+        </span>
+
+        <div
+          style={{ display: expand ? "block" : "none", paddingLeft: "15px" }}
+        >
+          {folderData.items.map((leaf) => {
+            return <Folder folderData={leaf} key={leaf.name} />;
+          })}
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <span>
+        {folderData.name}
+        <br />
+      </span>
+    );
+  }
+}
+
+export default Folder;
+
+const explorer = {
+  name: "root",
+  isFolder: true,
+  items: [
+    {
+      name: "public",
+      isFolder: true,
+      items: [
+        {
+          name: "index.html",
+          isFolder: false
+        },
+        {
+          name: "hello.html",
+          isFolder: false
+        }
+      ]
+    },
+    {
+      name: "src",
+      isFolder: true,
+      items: [
+        {
+          name: "app.js",
+          isFolder: false
+        },
+        {
+          name: "app.css",
+          isFolder: false
+        }
+      ]
+    }
+  ]
+};
+
+export default explorer;
+<Folder folderData={explorer} />
+/****Folder Explorer End ReactJS***/
