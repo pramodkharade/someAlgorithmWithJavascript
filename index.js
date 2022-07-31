@@ -359,3 +359,23 @@ const explorer = {
 export default explorer;
 <Folder folderData={explorer} />
 /****Folder Explorer End ReactJS***/
+ 
+ 
+ /***fatten start Array*/
+
+let arr =[2,[3,5,6,[34,45],4,5,6]];
+
+function customFlattenArray(arr, depth=1){
+let result =[];
+arr.forEach(ar => {
+    if(Array.isArray(ar) && depth>0){
+        result.push(...customFlattenArray(ar,depth-1))
+    }else{
+        result.push(ar);
+    }
+});
+return result;
+}
+
+console.log(customFlattenArray(arr,3))
+/***fatten End Array*/
