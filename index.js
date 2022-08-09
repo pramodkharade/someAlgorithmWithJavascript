@@ -379,3 +379,18 @@ return result;
 
 console.log(customFlattenArray(arr,3))
 /***fatten End Array*/
+
+/****Sum with method currying start****/
+function sum(num){
+    
+    return function(num2){
+         if(num2){
+             return sum(num+num2);
+         }
+         return num;
+    }
+}
+let total = sum(2)(3)(4)();
+console.log(total)
+
+/****Sum with method currying End****/
