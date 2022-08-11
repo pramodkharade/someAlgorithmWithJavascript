@@ -394,3 +394,29 @@ let total = sum(2)(3)(4)();
 console.log(total)
 
 /****Sum with method currying End****/
+
+/*****Deep Clone start****/
+const test={
+  past:[{day:31},{month:12},{year:2020}],
+  present:[{day:1},{month:1},{year:2021}],
+};
+const deepClone=(input)=>{
+  let result = Array.isArray(input)?[]:{};
+
+  if(typeof input !=='object'){
+    return input;
+  }
+
+  for (const key in input) {
+    result[key] = deepClone(input[key]);
+  }
+  return result;
+}
+let clone = deepClone(test);
+console.log(clone===test);
+test.past[2].year=1999;
+
+console.log(test);
+console.log("############");
+console.log(clone);
+/*****Deep Clone End****/
