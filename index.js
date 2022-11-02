@@ -420,3 +420,36 @@ console.log(test);
 console.log("############");
 console.log(clone);
 /*****Deep Clone End****/
+
+/***Department wise array of object****/
+let person = [{
+name: "xxx",
+age: 25,
+dept: "IT"
+},
+{
+name: "yyy",
+age:  26,
+dept: "HR"
+},
+{
+name: "zzz",
+age:  28,
+dept: "HR"
+}
+];
+person.reduce((r, car) => {
+
+  const {
+    name,
+    age,
+    dept
+  } = car;
+
+  r[dept] = [...r[dept] || [], {
+    name,
+    age
+  }];
+
+  return r;
+}, {})
